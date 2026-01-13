@@ -2,6 +2,13 @@ import { Star } from 'lucide-react';
 import { Message } from '@/data/messages';
 import { cn } from '@/lib/utils';
 
+const postItColors = [
+  'bg-postit-pink',
+  'bg-postit-yellow', 
+  'bg-postit-green',
+  'bg-postit-blue',
+];
+
 interface PostItCardProps {
   message: Message;
   isFavorite: boolean;
@@ -18,6 +25,8 @@ export function PostItCard({
   className 
 }: PostItCardProps) {
   const rotation = Math.min(Math.max(deltaX / 15, -15), 15);
+  const colorIndex = (message.id - 1) % postItColors.length;
+  const bgColor = postItColors[colorIndex];
   
   return (
     <div 
@@ -36,7 +45,8 @@ export function PostItCard({
       <div 
         className={cn(
           "relative w-full h-full rounded-sm p-6 flex flex-col",
-          "bg-postit-bg shadow-postit",
+          bgColor,
+          "shadow-postit",
           "before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:to-transparent before:rounded-sm",
           "after:absolute after:inset-0 after:opacity-10 after:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmZmZmMDAiPjwvcmVjdD4KPHBhdGggZD0iTTAgMEw0IDRaTTQgMEwwIDRaIiBzdHJva2Utd2lkdGg9IjAuNSIgc3Ryb2tlPSIjMDAwMDAwMTAiPjwvcGF0aD4KPC9zdmc+')]",
           "hover:shadow-lifted transition-shadow duration-300"
@@ -53,7 +63,7 @@ export function PostItCard({
             "hover:scale-110 active:scale-95",
             isFavorite 
               ? "text-neon-pink" 
-              : "text-foreground/30 hover:text-foreground/50"
+              : "text-postit-text/40 hover:text-postit-text/60"
           )}
           aria-label={isFavorite ? "Fjern fra favoritter" : "Tilføj til favoritter"}
         >
@@ -65,7 +75,7 @@ export function PostItCard({
         {/* Message content */}
         <div className="flex-1 flex items-center justify-center overflow-auto">
           <p className={cn(
-            "font-handwritten text-foreground/90 text-center leading-relaxed",
+            "font-handwritten text-postit-text text-center leading-relaxed",
             message.text.length > 150 ? "text-xl" : 
             message.text.length > 80 ? "text-2xl" : "text-3xl"
           )}>
@@ -76,7 +86,7 @@ export function PostItCard({
         {/* Author */}
         {message.author && (
           <div className="mt-4 text-right">
-            <span className="font-handwritten text-lg text-foreground/60">
+            <span className="font-handwritten text-lg text-postit-text/70">
               – {message.author}
             </span>
           </div>

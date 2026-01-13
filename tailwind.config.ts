@@ -56,6 +56,11 @@ export default {
         postit: {
           bg: "hsl(var(--postit-bg))",
           shadow: "hsl(var(--postit-shadow))",
+          pink: "hsl(var(--postit-pink))",
+          yellow: "hsl(var(--postit-yellow))",
+          green: "hsl(var(--postit-green))",
+          blue: "hsl(var(--postit-blue))",
+          text: "hsl(var(--postit-text))",
         },
         tape: "hsl(var(--tape-bg))",
       },

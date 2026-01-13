@@ -46,6 +46,13 @@
     --postit-bg: 48 100% 90%;
     --postit-shadow: 45 30% 70%;
     --tape-bg: 45 20% 85%;
+    
+    /* Post-it colors */
+    --postit-pink: 350 100% 93%;
+    --postit-yellow: 50 100% 91%;
+    --postit-green: 120 60% 91%;
+    --postit-blue: 200 80% 92%;
+    --postit-text: 0 0% 10%;
 
     /* Gradients */
     --gradient-neon: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)), hsl(var(--neon-pink)));
@@ -89,6 +96,13 @@
     --postit-bg: 48 90% 85%;
     --postit-shadow: 260 30% 5%;
     --tape-bg: 45 15% 75%;
+    
+    /* Post-it colors - slightly muted in dark mode */
+    --postit-pink: 350 90% 88%;
+    --postit-yellow: 50 90% 86%;
+    --postit-green: 120 50% 86%;
+    --postit-blue: 200 70% 87%;
+    --postit-text: 0 0% 10%;
 
     --shadow-neon: 0 0 30px hsl(var(--neon-cyan) / 0.4), 0 0 60px hsl(var(--neon-pink) / 0.3);
     --shadow-postit: 12px 12px 24px hsl(var(--postit-shadow) / 0.8), -2px -2px 8px hsl(260 20% 15% / 0.3);
